@@ -1,31 +1,26 @@
 <div>
-	<table class="week-table">
-  		<thead>
-  			<tr>
-  				<th class="timeslot"></th>
-  				<th ng-repeat="day in week">
-  					{{day | date : 'EEE M/d'}}
-  				</th>
-  			</tr>
-  		</thead>
-  	</table>
-  	
+	<div class="weeks-header-wrapper">
+		<!--  Header of the table (Shows the days in a week) -->
+		<table class="weeks-table weeks-header">
+	  		<thead>
+	  			<tr>
+	  				<th class="timeslot"></th>
+	  				<th ng-repeat="day in week">
+	  					{{day | date : 'EEE M/d'}}
+	  				</th>
+	  			</tr>
+	  		</thead>
+	  	</table>
+  	</div>
   	<div class="appointments-table-wrapper">
-  		 <table class="week-table appointments-table">
+  		 <table class="weeks-table appointments-table">
   		 	<tbody>
   		 		<tr>
   		 			<td class="timeslot">
   		 				<div ng-repeat="time in day">{{time | date : 'h a'}}</div>
   		 			</td>
-  		 			<td ng-repeat="day in week"><div style="width:100%; height:60px; 
-  		 				background: repeating-linear-gradient(
-					  	#ffffff,
-						#ffffff 10px,
-						#ffffff 1px,
-						#000000 11px,
-						#3eff8f 11px,
-						#3eff8f 11px);">
-					  	</div>
+  		 			<td ng-repeat="day in week">
+  		 				<div></div>
 					</td>
   		 		</tr>
   		 	</tbody>

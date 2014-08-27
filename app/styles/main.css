@@ -1,37 +1,54 @@
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 .header,
 .footer {
-  padding: 0px 15px;
+	position:fixed;
+	padding:20px 15px;
 }
+/* Header is always fixed on top of the page */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 20px;
+	height:75px;
+	width:100%;
+	top:0px;
+	border-bottom:1px solid #d5d5d5;
+	background-color:#ffffff;
+	z-index:100;
 }
 .header .header-text {
-  padding-bottom: 15px;
-  font-size: 24px;
-  font-family: inherit;
-  font-weight: 500;
-  display: inline-block;
+	font-size:24px;
+	font-family:inherit;
+	font-weight:500;
+	display:inline-block;
+}
+/* View container is the main content area */
+.view-container {
+	position:relative;
+	width:100%;
+	top:75px;
+}
+.weeks-table {
+	width:100%;
+	table-layout:fixed;
+}
+.weeks-table th {
+	text-align:center;
+	font-weight:normal;
+}
+/* Weeks header is fixed on top of the page after the header */
+.weeks-header-wrapper {
+	position:fixed;
+	height:30px;
+	top:75px;
+	padding-top:10px;
+	border-bottom:1px solid #d5d5d5;
+	background-color:#ffffff;
+	z-index:100;
 }
 
-.week-table {
-	width:100%;
-}
-.week-table th {
-	text-align: center;
-	font-weight: normal;
-}
 /* Div to hold the appointments table */
 .appointments-table-wrapper {
+	position:relative;
 	width:100%;
-	height:560px;
-	overflow:auto;
+	height:760px;
+	top:30px;
 }
 .timeslot {
 	width:50px;
