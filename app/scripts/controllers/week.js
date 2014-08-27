@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name calendarApp.controller:AboutCtrl
+ * @name calendarApp.controller:MainCtrl
  * @description
- * # AboutCtrl
+ * # MainCtrl
  * Controller of the calendarApp
  */
 angular.module('calendarApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('WeekCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

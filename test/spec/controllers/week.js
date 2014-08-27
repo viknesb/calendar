@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: AboutCtrl', function () {
+describe('Controller: WeekCtrl', function () {
 
   // load the controller's module
   beforeEach(module('calendarApp'));
 
-  var AboutCtrl,
+  var WeekCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    AboutCtrl = $controller('AboutCtrl', {
+    WeekCtrl = $controller('WeekCtrl', {
       $scope: scope
     });
   }));
