@@ -9,16 +9,14 @@
  * Main module of the application.
  */
 angular
-  .module('calendarApp', [
-    'ngRoute'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/week', {
-        templateUrl: 'views/week.html',
-        controller: 'WeekCtrl'
-      })
-      .otherwise({
-        redirectTo: '/week'
-      });
-  });
+	.module('calendarApp', ['ngRoute'])
+	.config(function ($routeProvider) {
+		$routeProvider
+			.when('/week', {
+				templateUrl: 'views/week.html',
+				controller: 'WeekCtrl'
+			})
+			.otherwise({
+				redirectTo: '/week'
+			});
+	});
