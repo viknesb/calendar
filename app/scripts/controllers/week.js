@@ -15,4 +15,5 @@ angular.module('calendarApp')
       'Karma'
     ];
     $scope.week = DateService.getDaysInCurrentWeek();
+    $scope.day = DateService.getTimesInADay();
   });

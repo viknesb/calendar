@@ -23,10 +23,23 @@ angular.module('calendarApp')
 			  var week = [];
 			  var date = this.getFirstDayOfWeek(new Date());
 			  week.push(new Date(date));
-			  for(var i=0;i<6;i++) {
+			  for(var i=1;i<7;i++) {
 				  week.push(new Date(date.setDate(date.getDate()+1)));
 			  }
 			  return week;
+		  },
+		  getTimesInADay : function() {
+			  var day = [];
+			  var date = new Date();
+			  date.setHours(0);
+			  date.setMilliseconds(0);
+			  date.setMinutes(0);
+			  date.setSeconds(0);
+			  day.push(new Date(date));
+			  for(var i=1;i<24;i++) {
+				  day.push(new Date(date.setHours(date.getHours()+1)));
+			  }
+			  return day;
 		  }
 	  };
   });

@@ -8,12 +8,10 @@ body {
 .footer {
   padding: 0px 15px;
 }
-
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 20px;
 }
-
 .header .header-text {
   padding-bottom: 15px;
   font-size: 24px;
@@ -21,11 +19,19 @@ body {
   font-weight: 500;
   display: inline-block;
 }
+
 .week-table {
 	width:100%;
 }
 .week-table th {
 	text-align: center;
+	font-weight: normal;
+}
+/* Div to hold the appointments table */
+.appointments-table-wrapper {
+	width:100%;
+	height:560px;
+	overflow:auto;
 }
 .timeslot {
 	width:50px;
