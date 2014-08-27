@@ -8,10 +8,11 @@
  * Controller of the calendarApp
  */
 angular.module('calendarApp')
-  .controller('WeekCtrl', function ($scope) {
+  .controller('WeekCtrl', function ($scope, DateService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    $scope.week = DateService.getDaysInCurrentWeek();
   });

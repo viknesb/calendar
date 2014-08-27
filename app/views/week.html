@@ -1,3 +1,12 @@
 <div>
-
+	<table class="week-table">
+  		<thead>
+  			<tr>
+  				<th class="timeslot"></th>
+  				<th ng-repeat="day in week">
+  					{{day | date : 'EEE M/d'}}
+  				</th>
+  			</tr>
+  		</thead>
+  	</table>
 </div>
