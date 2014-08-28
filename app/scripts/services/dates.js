@@ -4,12 +4,12 @@
  * @ngdoc function
  * @name calendarApp.service:DateService
  * @description
- * # DateServce
+ * # DateService
  * Date service of the calendarApp to provide user friendly date features
  */
  
 angular.module('calendarApp')
-	.factory('DateService', function () {
+	.factory('DateService', function (NumberService) {
 		return {
 			// Returns first day(Sunday) of a given week
 			getFirstDayOfWeek : function(date) {
@@ -18,15 +18,16 @@ angular.module('calendarApp')
 				return firstDate;
 			},
 			//Returns all days in the current week
-			getDaysInCurrentWeek : function() {
+			getDaysInWeek : function(date) {
 				var week = [];
-				var date = this.getFirstDayOfWeek(new Date());
-				week.push(new Date(date));
+				var firstDate = this.getFirstDayOfWeek(date);
+				week.push(new Date(firstDate));
 				for(var i=1;i<7;i++) {
-					week.push(new Date(date.setDate(date.getDate()+1)));
+					week.push(new Date(firstDate.setDate(firstDate.getDate()+1)));
 				}
 				return week;
 			},
+			// Returns 24 hours in a day
 			getTimesInADay : function() {
 				var day = [];
 				var date = new Date();
@@ -39,6 +40,12 @@ angular.module('calendarApp')
 					day.push(new Date(date.setHours(date.getHours()+1)));
 				}
 				return day;
+			},
+			// Returns a random date in a given week
+			getRandomDateInWeek : function(date) {
+				var daysInWeek = this.getDaysInWeek(date);
+				var randomDayIndex = NumberService.getRandomIntInRange(0,6); 
+				return daysInWeek[randomDayIndex];
 			}
 		};
 	});

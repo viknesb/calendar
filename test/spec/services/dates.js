@@ -21,12 +21,12 @@ describe('Service: DateService', function () {
 		var expectedDate = new Date('08/24/2014');
 		expect(firstDateInWeek.getTime()).toBe(expectedDate.getTime());
 	});
-	it('should have function getDaysInCurrentWeek ', function () {
-		expect(angular.isFunction(dateService.getDaysInCurrentWeek)).toBe(true);
+	it('should have function getDaysInWeek ', function () {
+		expect(angular.isFunction(dateService.getDaysInWeek)).toBe(true);
 	});
 	
-	it('function getDaysInCurrentWeek ', function () {
-		var days = dateService.getDaysInCurrentWeek();
+	it('function getDaysInWeek ', function () {
+		var days = dateService.getDaysInWeek(new Date());
 		expect(days.length).toBe(7);
 	});
 	
@@ -40,5 +40,22 @@ describe('Service: DateService', function () {
 		for(var i=0;i<24;i++) {
 			expect(times[i].getHours()).toBe(i);
 		}
+	});
+	
+	it('should have function getRandomDateInWeek ', function () {
+		expect(angular.isFunction(dateService.getRandomDateInWeek)).toBe(true);
+	});
+	
+	it('function getRandomDateInWeek ', function () {
+		var currentDate = new Date();
+		var days = dateService.getDaysInWeek(currentDate);
+		var randomDate = dateService.getRandomDateInWeek(currentDate);
+		var isPresent = false;
+		days.forEach(function(item) {
+			if(item.getTime()===randomDate.getTime()) {
+				isPresent = true;
+			}
+		});
+		expect(isPresent).toBe(true);
 	});
 });

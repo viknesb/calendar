@@ -14,6 +14,8 @@ angular.module('calendarApp')
 		    'AngularJS',
 		    'Karma'
 		];
-		$scope.week = DateService.getDaysInCurrentWeek();
+		// Get days in current week
+		
+		$scope.week = DateService.getDaysInWeek(new Date());
 		$scope.day = DateService.getTimesInADay();
 	});
