@@ -3,29 +3,35 @@
 	<div class="weeks-header-wrapper">
 		<!--  Header of the table (Shows the days in a week) -->
 		<table class="weeks-table weeks-header">
-	  		<thead>
-	  			<tr>
-	  				<th class="timeslot"></th>
-	  				<th ng-repeat="day in week">
-	  					{{day | date : 'EEE M/d'}}
-	  				</th>
-	  			</tr>
-	  		</thead>
-	  	</table>
-  	</div>
-  	<div class="appointments-table-wrapper">
-  		 <table class="weeks-table appointments-table">
-  		 	<tbody>
-  		 		<tr>
-  		 			<td class="timeslot">
-  		 				<div ng-repeat="time in day">{{time | date : 'h a'}}</div>
-  		 			</td>
-  		 			<td ng-repeat="day in week">
-  		 				<div></div>
+			<thead>
+				<tr>
+					<th class="timeslot"></th>
+					<th ng-repeat="day in week">
+						{{day | date : 'EEE M/d'}}
+					</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div class="appointments-table-wrapper">
+		<!-- To display grid lines -->
+		<div class="hour-marker-wrapper">
+			<div ng-repeat="time in day" class="hour-marker">
+				<div class="halfhour-marker"></div>
+			</div>
+		</div>
+		<table class="weeks-table appointments-table">
+			<tbody>
+				<tr>
+					<td class="timeslot">
+						<div class="hour-text-wrapper" ng-repeat="time in day">
+							<div class="hour-text">{{time | date : 'h a'}}</div>
+						</div>
 					</td>
-  		 		</tr>
-  		 	</tbody>
-  		 </table> 		
-  	</div>
-  	
+					<td ng-repeat="day in week"><div></div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
 </div>

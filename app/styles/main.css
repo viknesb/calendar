@@ -42,7 +42,9 @@
 	background-color:#ffffff;
 	z-index:100;
 }
-
+.appointments-table td{
+	border-right: 1px solid #d5d5d5;
+}
 /* Div to hold the appointments table */
 .appointments-table-wrapper {
 	position:relative;
@@ -51,5 +53,41 @@
 	top:30px;
 }
 .timeslot {
-	width:50px;
+	width:5%;
+}
+.hour-marker {
+	border-top: 1px solid #d5d5d5;
+	height: 31px;
+	width:100%;
+}
+.hour-marker:last-child {
+	border-bottom: 1px solid #d5d5d5;
+}
+.hour-marker-wrapper {
+	position: absolute;
+	left: 5%;
+	top:15px;
+	width: 95%;
+}
+.hour-text-wrapper {
+	height:31px;
+	position:relative;
+}
+.hour-text-wrapper:last-child {
+	height:46px;
+}
+.hour-text {
+	font-size:10px;
+	right:5px;
+	top:7px;
+	position:absolute;
+}
+.halfhour-marker {
+	border-bottom: 1px dotted #e5e5e5;
+	height: 15px;
+	width:100%;
+}
+.appointment-wrapper {
+	width:100%;
+	position:relative;
 }
