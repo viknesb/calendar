@@ -1,11 +1,11 @@
 .header,
 .footer {
 	position:fixed;
-	padding:20px 15px;
+	padding:10px 15px;
 }
 /* Header is always fixed on top of the page */
 .header {
-	height:75px;
+	height:50px;
 	width:100%;
 	top:0px;
 	border-bottom:1px solid #d5d5d5;
@@ -13,7 +13,7 @@
 	z-index:100;
 }
 .header .header-text {
-	font-size:24px;
+	font-size:20px;
 	font-family:inherit;
 	font-weight:500;
 	display:inline-block;
@@ -22,7 +22,8 @@
 .view-container {
 	position:relative;
 	width:100%;
-	top:75px;
+	top:50px;
+	padding-right:10px;
 }
 .weeks-table {
 	width:100%;
@@ -32,40 +33,44 @@
 	text-align:center;
 	font-weight:normal;
 }
+.weeks-header {
+	margin-top:10px;
+}
 /* Weeks header is fixed on top of the page after the header */
 .weeks-header-wrapper {
 	position:fixed;
-	height:30px;
-	top:75px;
-	padding-top:10px;
+	height:75px;
+	top:50px;
+	padding:10px;
+	padding-bottom:0px;
 	border-bottom:1px solid #d5d5d5;
 	background-color:#ffffff;
 	z-index:100;
 }
 .appointments-table td{
-	border-right: 1px solid #d5d5d5;
+	border-right:1px solid #d5d5d5;
 }
 /* Div to hold the appointments table */
 .appointments-table-wrapper {
 	position:relative;
 	width:100%;
 	height:760px;
-	top:30px;
+	top:75px;
 }
 .timeslot {
 	width:5%;
 }
 .hour-marker {
-	border-top: 1px solid #d5d5d5;
-	height: 31px;
+	border-top:1px solid #d5d5d5;
+	height:31px;
 	width:100%;
 }
 .hour-marker:last-child {
-	border-bottom: 1px solid #d5d5d5;
+	border-bottom:1px solid #d5d5d5;
 }
 .hour-marker-wrapper {
-	position: absolute;
-	left: 5%;
+	position:absolute;
+	left:5%;
 	top:15px;
 	width: 95%;
 }
@@ -84,7 +89,7 @@
 }
 .halfhour-marker {
 	border-bottom: 1px dotted #e5e5e5;
-	height: 15px;
+	height:15px;
 	width:100%;
 }
 .appointment-wrapper {

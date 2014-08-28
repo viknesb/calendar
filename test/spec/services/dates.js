@@ -58,4 +58,14 @@ describe('Service: DateService', function () {
 		});
 		expect(isPresent).toBe(true);
 	});
+	
+	it('should have function getDateString ', function () {
+		expect(angular.isFunction(dateService.getDateString)).toBe(true);
+	});
+	
+	it('function getDateString ', function () {
+		var date = new Date('08/27/2014');
+		var expectedDateString = '2014-08-27';
+		expect(dateService.getDateString(date)).toBe(expectedDateString);
+	});
 });

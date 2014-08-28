@@ -46,6 +46,10 @@ angular.module('calendarApp')
 				var daysInWeek = this.getDaysInWeek(date);
 				var randomDayIndex = NumberService.getRandomIntInRange(0,6); 
 				return daysInWeek[randomDayIndex];
+			},
+			// Returns just the date in string format(without the time)
+			getDateString : function(date) {
+				return date.toJSON().substring(0,10);
 			}
 		};
 	});
