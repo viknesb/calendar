@@ -9,7 +9,7 @@
  */
  
 angular.module('calendarApp')
-	.factory('WeekService', function (DateService) {
+	.factory('WeekService', function (DateService, AppointmentService) {
 		return {
 			//Returns an array of day objects that can hold appointments in a week
 			getWeek : function(date) {
@@ -29,12 +29,22 @@ angular.module('calendarApp')
 				var endDateString = DateService.getDateString(appt.endDate);
 				if(startDateString === endDateString) {
 					var day = week[startDateString];
-					day.appointments.push(appt);
+					if(day!==undefined) {
+						// Add appointments display attributes before adding to a day
+						AppointmentService.updatePosition(appt);
+						day.appointments.push(appt);
+					}
 				} else {
 					var startDay = week[startDateString];
-					startDay.appointments.push(appt);
+					if(startDay!==undefined) {
+						AppointmentService.updatePosition(appt);
+						startDay.appointments.push(appt);
+					}
 					var endDay = week[endDateString];
-					endDay.appointments.push(appt);
+					if(endDay!==undefined) {
+						AppointmentService.updatePosition(appt);
+						endDay.appointments.push(appt);
+					}
 				}
 				return week;
 			}

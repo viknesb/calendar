@@ -49,7 +49,37 @@ angular.module('calendarApp')
 			},
 			// Returns just the date in string format(without the time)
 			getDateString : function(date) {
-				return date.toJSON().substring(0,10);
+				return date.toLocaleDateString();
+			},
+			getMinutesFromMidnight : function(date) {
+				var midnight = new Date(date);
+				midnight.setHours(0);
+				midnight.setMinutes(0);
+				midnight.setSeconds(0);
+				midnight.setMilliseconds(0);
+				var diff = date.getTime()-midnight.getTime();
+				diff/=1000;
+				diff/=60;
+				return Math.floor(diff);
+			},
+			getHoursFromMidnight : function(date) {
+				var midnight = new Date(date);
+				midnight.setHours(0);
+				midnight.setMinutes(0);
+				midnight.setSeconds(0);
+				midnight.setMilliseconds(0);
+				var diff = date.getTime()-midnight.getTime();
+				diff/=1000;
+				diff/=60;
+				diff/=60;
+				return Math.floor(diff);
+			},
+			// Returns the difference in minutes between 2 dates
+			getMinutesDiff : function(date1,date2) {
+				var diff = Math.abs(date1.getTime()-date2.getTime());
+				diff/=1000;
+				diff/=60;
+				return Math.floor(diff);
 			}
 		};
 	});

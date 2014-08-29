@@ -8,7 +8,7 @@
  * Controller of the calendarApp
  */
 angular.module('calendarApp')
-	.controller('WeekCtrl', function ($scope, DateService, WeekService, AppointmentService) {
+	.controller('WeekCtrl', function ($scope, DateService, WeekService, AppointmentService, NumberService) {
 		$scope.awesomeThings = [
 		    'HTML5 Boilerplate',
 		    'AngularJS',
@@ -20,9 +20,12 @@ angular.module('calendarApp')
 		$scope.day = DateService.getTimesInADay();
 		
 		$scope.createAppointment = function() {
-			var appointmentDate = DateService.getRandomDateInWeek(new Date());
-			var desc = 'Test appointment';
-			var appt = AppointmentService.createAppointment(appointmentDate,appointmentDate,desc);
+			var apptStartDate = DateService.getRandomDateInWeek(new Date());
+	    	var duration = NumberService.getRandomIntInRange(30,120);
+	    	var apptEndDate = new Date(apptStartDate);
+	    	apptEndDate.setMinutes(apptEndDate.getMinutes()+duration);
+	    	var desc = 'Test Description';
+	    	var appt = AppointmentService.createAppointment(apptStartDate,apptEndDate,desc);
 			WeekService.addAppointment($scope.week,appt);
 		};
 	});

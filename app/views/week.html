@@ -31,7 +31,17 @@
 							<div class="hour-text">{{time | date : 'h a'}}</div>
 						</div>
 					</td>
-					<td ng-repeat="day in week"><div></div></td>
+					<td ng-repeat="day in week">
+  		 				<div class="appointment-wrapper">
+  		 					<div class="appointment-margin">
+  		 						<div ng-repeat="appt in day.appointments" class="appointment" 
+  		 							style="height:{{appt.height}}px; top:{{appt.yOffset}}px;">
+  		 							{{appt.desc}}
+  		 						</div>
+  		 					</div>
+  		 					
+  		 				</div>
+  		 			</td>
 				</tr>
 			</tbody>
 		</table>
