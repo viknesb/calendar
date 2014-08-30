@@ -67,7 +67,6 @@ angular.module('calendarApp')
 				return Math.floor(diff);
 			},
 			getHoursFromMidnight : function(date) {
-				console.log('Get hours from midnight'+date);
 				var midnight = new Date(date);
 				midnight.setHours(0);
 				midnight.setMinutes(0);

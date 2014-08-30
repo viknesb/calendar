@@ -9,7 +9,7 @@
  */
  
 angular.module('calendarApp')
-	.factory('WeekService', function (DateService, AppointmentService) {
+	.factory('WeekService', function (DateService, AppointmentDisplayService) {
 		return {
 			//Returns an array of day objects that can hold appointments in a week
 			getWeek : function(date) {
@@ -18,7 +18,7 @@ angular.module('calendarApp')
 				daysInWeek.forEach(function(item) {
 					var day = {};
 					day.date = item;
-					day.appointments = [];
+					day.layers = [];
 					var dateString = DateService.getDateString(item);
 					week[dateString] = day;
 				});
@@ -30,21 +30,10 @@ angular.module('calendarApp')
 				if(startDateString === endDateString) {
 					var day = week[startDateString];
 					if(day!==undefined) {
-						// Add appointments display attributes before adding to a day
-						AppointmentService.updatePosition(appt);
-						day.appointments.push(appt);
+						AppointmentDisplayService.addAppointmentToDay(day,appt);
 					}
 				} else {
-					var startDay = week[startDateString];
-					if(startDay!==undefined) {
-						AppointmentService.updatePosition(appt);
-						startDay.appointments.push(appt);
-					}
-					var endDay = week[endDateString];
-					if(endDay!==undefined) {
-						AppointmentService.updatePosition(appt);
-						endDay.appointments.push(appt);
-					}
+					// TODO: Handle case where the appointment stretches on to the next day
 				}
 				return week;
 			}

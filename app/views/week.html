@@ -34,9 +34,11 @@
 					<td ng-repeat="day in week">
   		 				<div class="appointment-wrapper">
   		 					<div class="appointment-margin">
-  		 						<div ng-repeat="appt in day.appointments" class="appointment" 
-  		 							ng-style="{height:appt.height+'px', top:appt.yOffset+'px'}">
-  		 							{{appt.desc}}
+  		 						<div ng-repeat="layer in day.layers">
+	  		 						<div ng-repeat="appt in layer" class="appointment" 
+	  		 							ng-style="{height:appt.height+'px', top:appt.yOffset+'px'}">
+	  		 							{{appt.desc}} {{appt.startDate | date : 'h:ma' | lowercase}} 
+	  		 						</div>
   		 						</div>
   		 					</div>
   		 					
