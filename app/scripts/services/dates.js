@@ -49,7 +49,11 @@ angular.module('calendarApp')
 			},
 			// Returns just the date in string format(without the time)
 			getDateString : function(date) {
-				return date.toLocaleDateString();
+				var timezoneOffsetDate = new Date(date);
+				// toJSON() returns the UTC date.
+				// So subtracting the timezoneOffset to return the local date string
+				timezoneOffsetDate.setMinutes(date.getMinutes()-date.getTimezoneOffset());
+				return timezoneOffsetDate.toJSON().substring(0,10);
 			},
 			getMinutesFromMidnight : function(date) {
 				var midnight = new Date(date);
@@ -63,6 +67,7 @@ angular.module('calendarApp')
 				return Math.floor(diff);
 			},
 			getHoursFromMidnight : function(date) {
+				console.log('Get hours from midnight'+date);
 				var midnight = new Date(date);
 				midnight.setHours(0);
 				midnight.setMinutes(0);

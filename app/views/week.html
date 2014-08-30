@@ -35,7 +35,7 @@
   		 				<div class="appointment-wrapper">
   		 					<div class="appointment-margin">
   		 						<div ng-repeat="appt in day.appointments" class="appointment" 
-  		 							style="height:{{appt.height}}px; top:{{appt.yOffset}}px;">
+  		 							ng-style="{height:appt.height+'px', top:appt.yOffset+'px'}">
   		 							{{appt.desc}}
   		 						</div>
   		 					</div>
