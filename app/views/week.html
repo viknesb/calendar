@@ -1,20 +1,23 @@
 <div>
 
 	<div class="weeks-header-wrapper">
-		<div>
-			<button class="btn btn-primary btn-sm" ng-click="createAppointment()">Create Appointment</button>
+		<div class="col-xs-12">
+				<button type="submit" class="btn btn-primary btn-sm" ng-disabled="createApptForm.$invalid"
+					ng-click="createAppointment()">Create Appointment</button>
 		</div>
 		<!--  Header of the table (Shows the days in a week) -->
-		<table class="weeks-table weeks-header">
-			<thead>
-				<tr>
-					<th class="timeslot"></th>
-					<th ng-repeat="day in week">
-						{{day.date | date : 'EEE M/d'}}
-					</th>
-				</tr>
-			</thead>
-		</table>
+		<div class="col-xs-12">
+			<table class="weeks-table weeks-header">
+				<thead>
+					<tr>
+						<th class="timeslot"></th>
+						<th ng-repeat="day in week">
+							{{day.date | date : 'EEE M/d'}}
+						</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
 	</div>
 	<div class="appointments-table-wrapper">
 		<!-- To display grid lines -->
@@ -36,8 +39,9 @@
   		 					<div class="appointment-margin">
   		 						<div ng-repeat="layer in day.layers">
 	  		 						<div ng-repeat="appt in layer" class="appointment" 
-	  		 							ng-style="{height:appt.height+'px', top:appt.yOffset+'px'}">
-	  		 							{{appt.desc}} {{appt.startDate | date : 'h:ma' | lowercase}} 
+	  		 							ng-style="{height:appt.height+'px', top:appt.yOffset+'px', 
+	  		 							width:appt.width+'%', left:appt.xOffset+'%'}">
+	  		 							{{appt.desc}} {{appt.startDate | date : 'h:mma' | lowercase}} 
 	  		 						</div>
   		 						</div>
   		 					</div>

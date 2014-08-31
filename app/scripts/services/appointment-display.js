@@ -52,7 +52,16 @@ angular.module('calendarApp')
 				appt.layer = layer;
 			},
 			updateDisplayAttr : function(appt) {
-				this.updateHeightAndYOffset(appt);				
+				this.updateHeightAndYOffset(appt);
+				/* Check for overlaps with existing appointments
+				* Start with appointments from the bottom most layer. 
+				* Subsequent layers will be covered by recursion
+				*/
+				var apptList = layers[0];
+				for(var i=0;i<apptList.length;i++) {
+					this.calculateDepth(apptList[i]);
+				}
+				
 			},
 			updateHeightAndYOffset : function(appt) {
 				// Height Calculation
@@ -67,6 +76,39 @@ angular.module('calendarApp')
 				 */
 				appt.yOffset = DateService.getHoursFromMidnight(appt.startDate) +
 					Math.floor(DateService.getMinutesFromMidnight(appt.startDate)/2);
+			},
+			updateWidthAndXOffset : function(appt) {
+				// Width Calculation
+				if(appt.layer+1===appt.depth) {
+					// Width of appointment in topmost layer
+					appt.width = 100/appt.depth;
+				} else {
+					// Width of appointments in all other layers
+					appt.width = 100/appt.depth*17/10;
+				}
+				
+				// X axis Position Calculation
+				appt.xOffset = 100/appt.depth*(appt.layer);
+				if(appt.xOffset===0) {
+					appt.xOffset=0.5;
+				}
+			},
+			calculateDepth : function(appt) {
+				if(appt.children) {
+					var maxDepthOfChildren = 0;
+					for(var i=0;i<appt.children.length;i++) {
+						var childDepth = this.calculateDepth(appt.children[i]);
+						if(childDepth > maxDepthOfChildren) {
+							maxDepthOfChildren = childDepth;
+						}
+					}
+					appt.depth = maxDepthOfChildren;
+				} else {
+					appt.depth = appt.layer+1;
+				}
+				// Update appointment's width and x position here to avoid recursing again 
+				this.updateWidthAndXOffset(appt);
+				return appt.depth;
 			}
 		};
 	});

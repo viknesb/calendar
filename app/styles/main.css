@@ -1,7 +1,7 @@
 .header,
 .footer {
 	position:fixed;
-	padding:10px 15px;
+	padding:10px 10px;
 }
 /* Header is always fixed on top of the page */
 .header {
@@ -110,5 +110,8 @@
 	padding:2px;
 	border-left:2px solid #5577DD;
 	margin-left:1px;
+	box-shadow:-2px -2px #ffffff;
 	font-size:10px;
+	word-wrap:break-word;
+	overflow:hidden;
 }
