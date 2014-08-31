@@ -115,3 +115,7 @@
 	word-wrap:break-word;
 	overflow:hidden;
 }
+.error-msg {
+	color:red;
+	font-size:15px;
+}
