@@ -1,8 +1,6 @@
 calendar
 ========
 
-Sunrise programming challenge
-
 To run the app,
 <ol>
   <li>Clone the repo into a local folder.</li>
